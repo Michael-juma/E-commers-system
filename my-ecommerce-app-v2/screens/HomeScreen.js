@@ -6,7 +6,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text style={{ fontSize: 22, fontWeight: "bold" }}>
-        Welcome to Our E-Commerce App!
+        Welcome to Our Cars E-Commerce App!
       </Text>
       <Button
         title="View Products"
