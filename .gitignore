@@ -1,0 +1,11 @@
+# Root gitignore for the repository
+
+# Ignore dependencies
+node_modules/
+**/node_modules/
+
+# Optional: common ignores
+.DS_Store
+npm-debug.*
+yarn-debug.*
+yarn-error.*
