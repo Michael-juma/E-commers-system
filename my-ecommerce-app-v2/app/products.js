@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, FlatList, Image, Button } from "react-native";
+import { View, Text, FlatList, Image, Button, TouchableOpacity, useWindowDimensions } from "react-native";
 import { useRouter } from "expo-router";
 import styles from "./commonStyles";
 
@@ -28,35 +28,52 @@ const products = [
 
 export default function ProductsScreen() {
   const router = useRouter();
+  const { width } = useWindowDimensions();
+
+  const isDesktop = width >= 1024;
+  const isTablet = width >= 768 && width < 1024;
+  const numColumns = isDesktop ? 3 : isTablet ? 2 : 1;
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, isDesktop && styles.containerDesktop]}>
       <FlatList
         data={products}
         keyExtractor={(item) => item.id}
+        numColumns={numColumns}
+        columnWrapperStyle={numColumns > 1 ? { justifyContent: 'space-between' } : undefined}
         renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Image source={{ uri: item.image }} style={styles.image} />
-            <View style={styles.cardBody}>
-              <Text style={styles.name}>{item.name}</Text>
-              <Text style={styles.price}>Ksh {item.price.toLocaleString()}</Text>
-              <View style={{ flexDirection: "row", gap: 12, marginTop: 12 }}>
-                <View style={{ flex: 1 }}>
-                  <View style={styles.btnPrimary}>
-                    <Button title="Book Now" color="#fff" onPress={() => {}} />
-                  </View>
+          <View style={{ flex: 1, margin: numColumns > 1 ? 8 : 0, maxWidth: isDesktop ? 360 : '100%' }}>
+            <TouchableOpacity activeOpacity={0.92} style={styles.card} onPress={() => router.push(`/products/${item.id}`)}>
+              <View style={styles.cardHeader}>
+                <Image source={{ uri: item.image }} style={styles.image} />
+                <View style={styles.priceBadge}>
+                  <Text style={styles.priceBadgeText}>Ksh {item.price.toLocaleString()}</Text>
                 </View>
-                <View style={{ flex: 1 }}>
-                  <View style={styles.btnSecondary}>
-                    <Button
-                      title="Details"
-                      color="#dc2626"
-                      onPress={() => router.push(`/products/${item.id}`)}
-                    />
+                <View style={styles.categoryBadge}>
+                  <Text style={styles.categoryBadgeText}>Supercar</Text>
+                </View>
+              </View>
+              <View style={styles.cardBody}>
+                <Text style={styles.name}>{item.name}</Text>
+                <Text style={styles.price}>Ksh {item.price.toLocaleString()}</Text>
+                <View style={{ flexDirection: "row", gap: 12, marginTop: 12 }}>
+                  <View style={{ flex: 1 }}>
+                    <View style={styles.btnPrimary}>
+                      <Button title="Book Now" color="#fff" onPress={() => {}} />
+                    </View>
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <View style={styles.btnSecondary}>
+                      <Button
+                        title="Details"
+                        color="#dc2626"
+                        onPress={() => router.push(`/products/${item.id}`)}
+                      />
+                    </View>
                   </View>
                 </View>
               </View>
-            </View>
+            </TouchableOpacity>
           </View>
         )}
       />
