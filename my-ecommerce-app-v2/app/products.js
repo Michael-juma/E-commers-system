@@ -4,29 +4,7 @@ import { useRouter } from "expo-router";
 import styles from "./commonStyles";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
-const products = [
-  {
-    id: "1",
-    name: "MCLAREN 750S",
-    price: 85000000,
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/red-mclaren-750s-sports-car-WXWgQTUgK9Zr1nQkPKycirr2k5o8qa.jpg",
-  },
-  {
-    id: "2",
-    name: "LAMBORGHINI AVENTADOR",
-    price: 120000000,
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/yellow-mclaren-750s-sports-car-T6tGK4MyPm1IK4fHcSc9qLkk6ZeTcL.jpg",
-  },
-  {
-    id: "3",
-    name: "FERRARI SF90",
-    price: 150000000,
-    image: "https://via.placeholder.com/400x300",
-  },
-];
+import products from "./data/products";
 
 export default function ProductsScreen() {
   const router = useRouter();

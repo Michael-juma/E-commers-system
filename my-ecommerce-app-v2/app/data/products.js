@@ -1,0 +1,158 @@
+const products = [
+  {
+    id: "1",
+    name: "MCLAREN 750S",
+    price: 85000000,
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/red-mclaren-750s-sports-car-WXWgQTUgK9Zr1nQkPKycirr2k5o8qa.jpg",
+    gallery: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/red-mclaren-750s-sports-car-WXWgQTUgK9Zr1nQkPKycirr2k5o8qa.jpg",
+      "https://via.placeholder.com/800x600?text=Interior+Shot",
+      "https://via.placeholder.com/800x600?text=Engine+Closeup",
+    ],
+    exteriorImages: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/red-mclaren-750s-sports-car-WXWgQTUgK9Zr1nQkPKycirr2k5o8qa.jpg",
+      "https://via.placeholder.com/800x600?text=Side+Profile",
+      "https://via.placeholder.com/800x600?text=Rear+View",
+    ],
+    interiorImages: [
+      "https://via.placeholder.com/800x600?text=Interior+Front",
+      "https://via.placeholder.com/800x600?text=Interior+Dashboard",
+    ],
+    description:
+      "The McLaren 750S is a high-performance British supercar combining lightweight construction with a powerful twin-turbo V8 for blistering acceleration and exceptional handling.",
+    specs: {
+      year: 2024,
+      engine: "4.0L V8 Twin Turbo",
+      power: "750 HP",
+      torque: "800 Nm",
+      transmission: "7-speed dual-clutch",
+      drivetrain: "RWD",
+      seats: 2,
+      fuelType: "Petrol",
+      mileage: "New",
+      colorOptions: ["Papaya Orange", "Storm Grey", "Onyx Black"],
+      VIN: "WMW1234567890MC1",
+      acceleration: "0-100 km/h in 2.8s",
+      topSpeed: "330 km/h",
+      dimensions: "Length 4528 mm · Width 1976 mm · Height 1199 mm",
+      weight: "1430 kg (dry)",
+      fuelEconomy: "8.5 L/100km (combined)",
+      warranty: "3 years / 60,000 km",
+    },
+    features: [
+      "Carbon fibre monocoque",
+      "Active aerodynamics",
+      "Adaptive suspension",
+      "High-performance ceramic brakes",
+      "Premium sport seats",
+      "Apple CarPlay / Android Auto",
+    ],
+    dealer: {
+      name: "Nairobi Supercars",
+      contact: "+254 712 000000",
+      location: "Westlands, Nairobi",
+    },
+  },
+  {
+    id: "2",
+    name: "LAMBORGHINI AVENTADOR",
+    price: 120000000,
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/yellow-mclaren-750s-sports-car-T6tGK4MyPm1IK4fHcSc9qLkk6ZeTcL.jpg",
+    gallery: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/yellow-mclaren-750s-sports-car-T6tGK4MyPm1IK4fHcSc9qLkk6ZeTcL.jpg",
+      "https://via.placeholder.com/800x600?text=Lambo+Interior",
+    ],
+    exteriorImages: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/yellow-mclaren-750s-sports-car-T6tGK4MyPm1IK4fHcSc9qLkk6ZeTcL.jpg",
+      "https://via.placeholder.com/800x600?text=Lambo+Front",
+    ],
+    interiorImages: [
+      "https://via.placeholder.com/800x600?text=Lambo+Interior+Seats",
+    ],
+    description:
+      "The Aventador is an Italian supercar with aggressive styling, a naturally aspirated V12, and razor-sharp handling tuned for exhilarating driving experiences.",
+    specs: {
+      year: 2023,
+      engine: "6.5L V12",
+      power: "770 HP",
+      torque: "720 Nm",
+      transmission: "7-speed ISR",
+      drivetrain: "AWD",
+      seats: 2,
+      fuelType: "Petrol",
+      mileage: "5,000 km",
+      colorOptions: ["Giallo Orion", "Nero Helene"],
+      VIN: "LAM1234567890AV",
+      acceleration: "0-100 km/h in 2.9s",
+      topSpeed: "350 km/h",
+      dimensions: "Length 4780 mm · Width 2030 mm · Height 1136 mm",
+      weight: "1575 kg",
+      fuelEconomy: "12.4 L/100km (combined)",
+      warranty: "2 years / 50,000 km",
+    },
+    features: [
+      "V12 naturally aspirated engine",
+      "Carbon ceramic brakes",
+      "Magnetorheological suspension",
+      "Premium Alcantara interior",
+    ],
+    dealer: {
+      name: "Mombasa Exotics",
+      contact: "+254 700 111111",
+      location: "Mombasa Road, Nairobi",
+    },
+  },
+  {
+    id: "3",
+    name: "FERRARI SF90",
+    price: 150000000,
+    image: "https://via.placeholder.com/800x600",
+    gallery: [
+      "https://via.placeholder.com/800x600?text=SF90+Front",
+      "https://via.placeholder.com/800x600?text=SF90+Rear",
+    ],
+    exteriorImages: [
+      "https://via.placeholder.com/800x600?text=SF90+Front",
+      "https://via.placeholder.com/800x600?text=SF90+Side",
+    ],
+    interiorImages: [
+      "https://via.placeholder.com/800x600?text=SF90+Interior",
+    ],
+    description:
+      "Ferrari SF90 is a plug-in hybrid supercar that blends electric torque with a potent combustion engine to deliver staggering acceleration and cutting-edge technology.",
+    specs: {
+      year: 2024,
+      engine: "V8 + Electric",
+      power: "986 HP (combined)",
+      torque: "800 Nm",
+      transmission: "8-speed dual-clutch",
+      drivetrain: "AWD",
+      seats: 2,
+      fuelType: "Petrol + Electric",
+      mileage: "New",
+      colorOptions: ["Rosso Corsa", "Bianco Italia"],
+      VIN: "FER1234567890SF",
+      acceleration: "0-100 km/h in 2.5s",
+      topSpeed: "340 km/h",
+      dimensions: "Length 4710 mm · Width 1970 mm · Height 1184 mm",
+      weight: "1645 kg",
+      fuelEconomy: "6.2 L/100km (combined)",
+      warranty: "3 years / 60,000 km",
+    },
+    features: [
+      "Hybrid drive system",
+      "Torque vectoring",
+      "Active aero",
+      "Driver-assist electronics",
+    ],
+    dealer: {
+      name: "Safari Motors",
+      contact: "+254 733 222222",
+      location: "Upper Hill, Nairobi",
+    },
+  },
+];
+
+export default products;

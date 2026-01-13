@@ -118,4 +118,59 @@ export default StyleSheet.create({
     color: "#9ca3af",
     marginBottom: 16,
   },
+  bodyText: {
+    color: "#e5e7eb",
+    fontSize: 15,
+    lineHeight: 22,
+  },
+  description: {
+    color: "#d1d5db",
+    fontSize: 15,
+    lineHeight: 22,
+    marginTop: 8,
+  },
+  specTitle: {
+    color: "#f3f4f6",
+    fontWeight: "700",
+    marginBottom: 6,
+  },
+  specItem: {
+    color: "#d1d5db",
+    marginBottom: 4,
+  },
+  featureItem: {
+    color: "#d1d5db",
+    marginBottom: 4,
+  },
+  dealerText: {
+    color: "#d1d5db",
+  },
+  // Desktop / large-screen tweaks
+  btnPrimaryDesktop: {
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    minHeight: 48,
+  },
+  btnSecondaryDesktop: {
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    minHeight: 48,
+  },
+  imageLarge: {
+    width: '100%',
+    height: 320,
+    borderRadius: 12,
+  },
+  galleryImage: {
+    width: 200,
+    height: 120,
+    marginRight: 8,
+    borderRadius: 8,
+  },
+  galleryImageDesktop: {
+    width: 300,
+    height: 180,
+  },
 })
