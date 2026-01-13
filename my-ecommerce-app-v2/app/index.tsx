@@ -4,6 +4,8 @@ import { useState } from "react"
 import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, useWindowDimensions } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import { Link } from "expo-router"
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -82,94 +84,8 @@ export default function HomePage() {
   ]
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      {/* Navigation */}
-      <View style={styles.navbar}>
-        <View style={[styles.navbarContainer, isDesktop && styles.navbarContainerDesktop]}>
-          <Image
-            source={{
-              uri: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/car-dealership-logo-shield-qD4sZ1FgcgbfiPbHZ4AcmQ9I0xHpPP.jpg",
-            }}
-            style={styles.logo}
-            resizeMode="contain"
-          />
-
-          {isDesktop && (
-            <View style={styles.desktopNav}>
-              <Link href="/" asChild>
-                <TouchableOpacity style={styles.navItem}>
-                  <Text style={[styles.navLink, styles.navLinkActive]}>Home</Text>
-                </TouchableOpacity>
-              </Link>
-              <Link href="/products" asChild>
-                <TouchableOpacity style={styles.navItem}>
-                  <Text style={styles.navLink}>Compare Cars</Text>
-                </TouchableOpacity>
-              </Link>
-              <Link href="/products" asChild>
-                <TouchableOpacity style={styles.navItem}>
-                  <Text style={styles.navLink}>Gallery</Text>
-                </TouchableOpacity>
-              </Link>
-              <Link href="/" asChild>
-                <TouchableOpacity style={styles.navItem}>
-                  <Text style={styles.navLink}>Contact Us</Text>
-                </TouchableOpacity>
-              </Link>
-            </View>
-          )}
-
-          {isDesktop && (
-            <View style={styles.desktopActions}>
-              <TouchableOpacity style={styles.btnLogin}>
-                <Text style={styles.btnLoginText}>Login</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.btnRegister}>
-                <Text style={styles.btnRegisterText}>Register</Text>
-              </TouchableOpacity>
-            </View>
-          )}
-
-          {!isDesktop && (
-            <TouchableOpacity style={styles.menuButton} onPress={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              <Ionicons name="menu" size={28} color="#fff" />
-            </TouchableOpacity>
-          )}
-        </View>
-
-        {!isDesktop && mobileMenuOpen && (
-          <View style={styles.mobileMenu}>
-            <Link href="/" asChild>
-              <TouchableOpacity style={styles.navItem}>
-                <Text style={[styles.navLink, styles.navLinkActive]}>Home</Text>
-              </TouchableOpacity>
-            </Link>
-            <Link href="/products" asChild>
-              <TouchableOpacity style={styles.navItem}>
-                <Text style={styles.navLink}>Compare Cars</Text>
-              </TouchableOpacity>
-            </Link>
-            <Link href="/products" asChild>
-              <TouchableOpacity style={styles.navItem}>
-                <Text style={styles.navLink}>Gallery</Text>
-              </TouchableOpacity>
-            </Link>
-            <Link href="/" asChild>
-              <TouchableOpacity style={styles.navItem}>
-                <Text style={styles.navLink}>Contact Us</Text>
-              </TouchableOpacity>
-            </Link>
-            <View style={styles.navActions}>
-              <TouchableOpacity style={styles.btnLogin}>
-                <Text style={styles.btnLoginText}>Login</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.btnRegister}>
-                <Text style={styles.btnRegisterText}>Register</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        )}
-      </View>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={styles.container} showsVerticalScrollIndicator={false}>
+      <Header />
 
       {/* Hero Section */}
       <View style={[styles.heroSection, isDesktop && styles.heroSectionDesktop]}>
@@ -353,83 +269,7 @@ export default function HomePage() {
         </View>
       </View>
 
-      {/* Footer */}
-      <View style={[styles.footer, isDesktop && styles.footerDesktop]}>
-        <View style={isDesktop && styles.containerDesktop}>
-          <View style={[styles.footerGrid, isDesktop && styles.footerGridDesktop]}>
-            <View style={[styles.footerCol, isDesktop && styles.footerColDesktop]}>
-              <Image
-                source={{
-                  uri: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/car-dealership-logo-shield-qD4sZ1FgcgbfiPbHZ4AcmQ9I0xHpPP.jpg",
-                }}
-                style={styles.footerLogo}
-                resizeMode="contain"
-              />
-              <Text style={styles.footerText}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              </Text>
-              <View style={styles.socialIcons}>
-                <TouchableOpacity style={styles.socialIcon}>
-                  <Ionicons name="logo-facebook" size={20} color="#fff" />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.socialIcon}>
-                  <Ionicons name="logo-instagram" size={20} color="#fff" />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.socialIcon}>
-                  <Ionicons name="logo-twitter" size={20} color="#fff" />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.socialIcon}>
-                  <Ionicons name="logo-linkedin" size={20} color="#fff" />
-                </TouchableOpacity>
-              </View>
-            </View>
-
-            <View style={[styles.footerCol, isDesktop && styles.footerColDesktop]}>
-              <Text style={styles.footerHeading}>Support</Text>
-              <TouchableOpacity>
-                <Text style={styles.footerLink}>Faq</Text>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Text style={styles.footerLink}>Shipping & Returns</Text>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Text style={styles.footerLink}>Contact Us</Text>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Text style={styles.footerLink}>Our Partners</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={[styles.footerCol, isDesktop && styles.footerColDesktop]}>
-              <Text style={styles.footerHeading}>Info</Text>
-              <TouchableOpacity>
-                <Text style={styles.footerLink}>About Us</Text>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Text style={styles.footerLink}>Our Stores</Text>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Text style={styles.footerLink}>Size Guide</Text>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Text style={styles.footerLink}>Our Painting Services</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={[styles.footerCol, isDesktop && styles.footerColDesktop]}>
-              <Text style={styles.footerHeading}>Contact</Text>
-              <Text style={styles.footerLink}>12 West Street, Kari Road</Text>
-              <Text style={styles.footerLink}>Nairobi, Kenya</Text>
-              <Text style={styles.footerLink}>+254 712 345 678</Text>
-              <Text style={styles.footerLink}>+254 734 567 890</Text>
-            </View>
-          </View>
-
-          <View style={styles.footerBottom}>
-            <Text style={styles.footerBottomText}>© 2025 Kenya Car Dealership. All rights reserved.</Text>
-          </View>
-        </View>
-      </View>
+      <Footer />
     </ScrollView>
   )
 }

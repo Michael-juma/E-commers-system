@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text, FlatList, Image, Button, TouchableOpacity, useWindowDimensions } from "react-native";
 import { useRouter } from "expo-router";
 import styles from "./commonStyles";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const products = [
   {
@@ -36,11 +38,13 @@ export default function ProductsScreen() {
 
   return (
     <View style={[styles.container, isDesktop && styles.containerDesktop]}>
+      <Header />
       <FlatList
         data={products}
         keyExtractor={(item) => item.id}
         numColumns={numColumns}
         columnWrapperStyle={numColumns > 1 ? { justifyContent: 'space-between' } : undefined}
+        contentContainerStyle={{ flexGrow: 1 }}
         renderItem={({ item }) => (
           <View style={{ flex: 1, margin: numColumns > 1 ? 8 : 0, maxWidth: isDesktop ? 360 : '100%' }}>
             <TouchableOpacity activeOpacity={0.92} style={styles.card} onPress={() => router.push(`/products/${item.id}`)}>
@@ -77,6 +81,7 @@ export default function ProductsScreen() {
           </View>
         )}
       />
+      <Footer minimal={true} />
     </View>
   );
 }

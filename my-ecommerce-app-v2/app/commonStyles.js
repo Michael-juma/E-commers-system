@@ -5,6 +5,9 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: "#0a0a0a",
     padding: 10,
+    // Ensure container fills viewport so footer can stick to bottom
+    minHeight: "100vh",
+    flexDirection: "column",
   },
   containerDesktop: {
     maxWidth: 1200,
