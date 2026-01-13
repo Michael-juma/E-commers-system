@@ -20,23 +20,23 @@ import Footer from "./components/Footer";
 const MOCK_PRODUCT = {
   id: "porsche-911",
   name: "Tagra-4 — 911 Carrera",
-  basePrice: 276000,
+  basePrice: 35880000,
   images: [
     "https://i.pinimg.com/736x/5f/2e/20/5f2e20080873abc0deae8d14ff09aba1.jpg",
   ],
   wheels: [
     { id: "w1", name: "Classic Rims", add: 0 },
-    { id: "w2", name: "Spyder Rims", add: 3403 },
-    { id: "w3", name: "Sport Rims", add: 8100 },
+    { id: "w2", name: "Spyder Rims", add: 442390 },
+    { id: "w3", name: "Sport Rims", add: 1053390 },
   ],
   drives: [
     { id: "2wd", name: "2WD", add: 0 },
-    { id: "4wd", name: "4WD", add: 8100 },
+    { id: "4wd", name: "4WD", add: 1053000 },
   ],
   accessories: [
-    { id: "a1", name: "Car Cover", add: 120 },
-    { id: "a2", name: "Extended Warranty", add: 2499 },
-    { id: "a3", name: "Premium Sound", add: 899 },
+    { id: "a1", name: "Car Cover", add: 15000 },
+    { id: "a2", name: "Extended Warranty", add: 34870 },
+    { id: "a3", name: "Premium Sound", add: 116870 },
   ],
 };
 
@@ -97,7 +97,7 @@ export default function CartScreen() {
       subtotal += itemTotal;
     });
     const tax = Math.round(subtotal * 0.12);
-    const shipping = subtotal > 0 ? 199 : 0;
+    const shipping = subtotal > 0 ? 25870 : 0;
     const grand = subtotal + tax + shipping;
     return { subtotal, tax, shipping, grand };
   }, [cartItems]);
