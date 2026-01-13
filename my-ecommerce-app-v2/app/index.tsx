@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, useWindowDimensions } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
+import { Link } from "expo-router"
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -95,18 +96,26 @@ export default function HomePage() {
 
           {isDesktop && (
             <View style={styles.desktopNav}>
-              <TouchableOpacity style={styles.navItem}>
-                <Text style={[styles.navLink, styles.navLinkActive]}>Home</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.navItem}>
-                <Text style={styles.navLink}>Compare Cars</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.navItem}>
-                <Text style={styles.navLink}>Gallery</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.navItem}>
-                <Text style={styles.navLink}>Contact Us</Text>
-              </TouchableOpacity>
+              <Link href="/" asChild>
+                <TouchableOpacity style={styles.navItem}>
+                  <Text style={[styles.navLink, styles.navLinkActive]}>Home</Text>
+                </TouchableOpacity>
+              </Link>
+              <Link href="/products" asChild>
+                <TouchableOpacity style={styles.navItem}>
+                  <Text style={styles.navLink}>Compare Cars</Text>
+                </TouchableOpacity>
+              </Link>
+              <Link href="/products" asChild>
+                <TouchableOpacity style={styles.navItem}>
+                  <Text style={styles.navLink}>Gallery</Text>
+                </TouchableOpacity>
+              </Link>
+              <Link href="/" asChild>
+                <TouchableOpacity style={styles.navItem}>
+                  <Text style={styles.navLink}>Contact Us</Text>
+                </TouchableOpacity>
+              </Link>
             </View>
           )}
 
@@ -130,18 +139,26 @@ export default function HomePage() {
 
         {!isDesktop && mobileMenuOpen && (
           <View style={styles.mobileMenu}>
-            <TouchableOpacity style={styles.navItem}>
-              <Text style={[styles.navLink, styles.navLinkActive]}>Home</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.navItem}>
-              <Text style={styles.navLink}>Compare Cars</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.navItem}>
-              <Text style={styles.navLink}>Gallery</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.navItem}>
-              <Text style={styles.navLink}>Contact Us</Text>
-            </TouchableOpacity>
+            <Link href="/" asChild>
+              <TouchableOpacity style={styles.navItem}>
+                <Text style={[styles.navLink, styles.navLinkActive]}>Home</Text>
+              </TouchableOpacity>
+            </Link>
+            <Link href="/products" asChild>
+              <TouchableOpacity style={styles.navItem}>
+                <Text style={styles.navLink}>Compare Cars</Text>
+              </TouchableOpacity>
+            </Link>
+            <Link href="/products" asChild>
+              <TouchableOpacity style={styles.navItem}>
+                <Text style={styles.navLink}>Gallery</Text>
+              </TouchableOpacity>
+            </Link>
+            <Link href="/" asChild>
+              <TouchableOpacity style={styles.navItem}>
+                <Text style={styles.navLink}>Contact Us</Text>
+              </TouchableOpacity>
+            </Link>
             <View style={styles.navActions}>
               <TouchableOpacity style={styles.btnLogin}>
                 <Text style={styles.btnLoginText}>Login</Text>
