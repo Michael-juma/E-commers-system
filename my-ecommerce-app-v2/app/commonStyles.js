@@ -173,4 +173,35 @@ export default StyleSheet.create({
     width: 300,
     height: 180,
   },
+  // Product hero styles
+  heroProduct: {
+    width: '100%',
+    height: 240,
+    borderRadius: 12,
+    overflow: 'hidden',
+    marginBottom: 12,
+  },
+  heroProductDesktop: {
+    height: 360,
+  },
+  heroOverlay: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.45)',
+    padding: 20,
+    justifyContent: 'center',
+  },
+  heroProductTitle: {
+    color: '#fff',
+    fontSize: 28,
+    fontWeight: '800',
+  },
+  heroProductSubtitle: {
+    color: '#e5e7eb',
+    marginTop: 8,
+    fontSize: 14,
+  },
 })

@@ -6,6 +6,7 @@ import { Ionicons } from "@expo/vector-icons"
 import { Link } from "expo-router"
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import products from "./data/products";
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -23,44 +24,20 @@ export default function HomePage() {
     }).format(amount)
   }
 
-  const featuredCars = [
-    {
-      id: 1,
-      name: "MCLAREN 750S",
-      category: "Supercars",
-      price: 85000000,
-      image: {
-        uri: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/red-mclaren-750s-sports-car-WXWgQTUgK9Zr1nQkPKycirr2k5o8qa.jpg",
-      },
-    },
-    {
-      id: 2,
-      name: "MCLAREN 750S",
-      category: "Supercars",
-      price: 85000000,
-      image: {
-        uri: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/red-mclaren-sports-car-side-view-4xDYIETE4pCUZDHiduHaZSejo2zeue.jpg",
-      },
-    },
-    {
-      id: 3,
-      name: "MCLAREN 750S",
-      category: "Supercars",
-      price: 82000000,
-      image: {
-        uri: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/yellow-mclaren-750s-sports-car-T6tGK4MyPm1IK4fHcSc9qLkk6ZeTcL.jpg",
-      },
-    },
-    {
-      id: 4,
-      name: "MCLAREN 750S",
-      category: "Supercars",
-      price: 83000000,
-      image: {
-        uri: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/silver-mclaren-750s-sports-car-jmhcrezlkhtT42sfdDYeQTtPrA5KDQ.jpg",
-      },
-    },
-  ]
+  // Use centralized products data and ensure four featured cards (repeat if fewer products)
+  const take = 4;
+  const source = [];
+  for (let i = 0; i < take; i++) {
+    const p = products[i % products.length];
+    source.push(p);
+  }
+  const featuredCars = source.map((p, idx) => ({
+    id: p.id ?? `${idx}`,
+    name: p.name,
+    category: "Supercars",
+    price: p.price,
+    image: { uri: p.image },
+  }));
 
   const testimonials = [
     {
@@ -205,12 +182,14 @@ export default function HomePage() {
                   <Text style={styles.carCategory}>{car.category}</Text>
                   <Text style={styles.carPrice}>{formatKES(car.price)}</Text>
                   <View style={styles.carCardActions}>
-                    <TouchableOpacity style={styles.btnBook}>
-                      <Text style={styles.btnBookText}>Book Now</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.btnDetails}>
-                      <Text style={styles.btnDetailsText}>Details</Text>
-                    </TouchableOpacity>
+                      <TouchableOpacity style={styles.btnBook}>
+                        <Text style={styles.btnBookText}>Book Now</Text>
+                      </TouchableOpacity>
+                      <Link href={`/products/${car.id}`} asChild>
+                        <TouchableOpacity style={styles.btnDetails}>
+                          <Text style={styles.btnDetailsText}>Details</Text>
+                        </TouchableOpacity>
+                      </Link>
                   </View>
                 </View>
               </View>
